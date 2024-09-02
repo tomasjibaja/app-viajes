@@ -12,7 +12,7 @@ const DestinoCard = ({ dest, i }) => {
   }
 
   return (
-    <div className="destino-card" key={i}>
+    <div className="destino-card">
       <h2>{dest.nombre}</h2>
       <p>{dest.situacion}</p>
       <img src={`./images/${dest.imagen}`} alt="imagen turismo" />

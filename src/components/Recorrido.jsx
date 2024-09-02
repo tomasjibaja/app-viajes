@@ -12,7 +12,7 @@ const Recorrido = () => {
           <div className="recorrido-item" key={index}>
             <h3>{elem.nombre}</h3>
             <h4>${elem.precio}</h4>
-            <button onClick={() => dispatchRecorrido({ type: 'cancelar', payload: elem.nombre})}>X</button>
+            <button onClick={() => dispatchRecorrido({ type: 'cancelar', payload: elem.nombre})}>&#10005;</button>
           </div>
         )
       })}
