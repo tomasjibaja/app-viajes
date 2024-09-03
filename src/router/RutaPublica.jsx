@@ -4,8 +4,8 @@ import Context from '../context/Context'
 
 const RutaPublica = ({ children }) => {
   const {logged} = useContext(Context)
-  return (!logged)
-    ? <Navigate to='/noa' />
+  return (logged)
+    ? <Navigate to='/no' />
     : children
 }
 

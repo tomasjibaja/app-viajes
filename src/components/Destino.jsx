@@ -14,7 +14,7 @@ const Destino = () => {
   }, [])
 
   const handleComprar = () => {
-    dispatchRecorrido({ type: 'comprar', payload: [datos.id]})
+    dispatchRecorrido({ type: 'comprar', payload: datos.id})
     setComprado(true)
   }
 
@@ -28,12 +28,13 @@ const Destino = () => {
       <h2>{data[datos.id].nombre}</h2>
       <p>{data[datos.id].situacion}</p>
       <img src={`../images/${data[datos.id].imagen}`} alt="imagen turismo" />
+      <h3 className="precio">${data[datos.id].precio}.-</h3>
       {comprado && <h5 className='comprado-msg'>en tu lista de recorrido</h5>}
       <p>{data[datos.id].servicio}</p>
       <div className='buttons-wrapper'>
         {comprado && <button onClick={() => handleCancelar()}>Cancelar</button>}
-        {!comprado && <button onClick={() => handleComprar()}>Comprar</button>}
-        <button onClick={() => navegarA(`/${data[datos.id].zona}`, { replace: true })}>Volver</button>
+        {!comprado && <button onClick={() => handleComprar()} className='comprar-btn'>Comprar</button>}
+        <button onClick={() => navegarA(`/${data[datos.id].zona}`, { replace: true })} className='volver-btn'>Volver</button>
       </div>
     </div>
   )

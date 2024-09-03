@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Destinos from '../components/Destinos'
 import Recorrido from '../components/Recorrido'
@@ -15,6 +15,7 @@ const Router2 = () => {
         <Route path='/cp' element={<Destinos zona={'cp'} />} />
         <Route path='/recorrido' element={<Recorrido />} />
         <Route path='/destino/:id' element={<Destino />} />
+        <Route path='/' element={<Navigate to={'/no'} />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
     </>
