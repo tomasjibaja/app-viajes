@@ -1,8 +1,9 @@
 import React, { useEffect, useContext } from 'react'
-import Context from '../context/Context'
 import { Routes, Route } from 'react-router-dom'
+import Context from '../context/Context'
 import Login from '../components/Login'
 import RutaPublica from './RutaPublica'
+import RutaPrivada from './RutaPrivada'
 import Router2 from './Router2'
 
 const Router1 = () => {
@@ -23,7 +24,11 @@ const Router1 = () => {
             <Login />
           </RutaPublica>
           } />
-        <Route path='/*' element={<Router2 />} />
+        <Route path='/*' element={
+          <RutaPrivada>
+            <Router2 />
+          </RutaPrivada>
+        } />
       </Routes>
     </>
   )

@@ -4,12 +4,13 @@ import Context from '../context/Context'
 import { useContext } from 'react'
 
 const Nav = () => {
-  const {dispatchLog, username, setUsername} = useContext(Context)
+  const {dispatchLog, dispatchRecorrido, username, setUsername} = useContext(Context)
   const navegarA = useNavigate()
   const [dropMenu, setDropMenu] = useState(false)
 
   const handleClick = () => {
     dispatchLog({ type: 'logout' });
+    dispatchRecorrido({ type: 'eliminar' })
     setUsername('');
     navegarA('/', { replace: true })
   }

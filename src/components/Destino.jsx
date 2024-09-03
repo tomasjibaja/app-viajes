@@ -34,7 +34,8 @@ const Destino = () => {
       <div className='buttons-wrapper'>
         {comprado && <button onClick={() => handleCancelar()}>Cancelar</button>}
         {!comprado && <button onClick={() => handleComprar()} className='comprar-btn'>Comprar</button>}
-        <button onClick={() => navegarA(`/${data[datos.id].zona}`, { replace: true })} className='volver-btn'>Volver</button>
+        {/* <button onClick={() => navegarA(`/${data[datos.id].zona}`, { replace: true })} className='volver-btn'>Volver</button> */}
+        <button onClick={() => navegarA('../')} className='volver-btn'>Volver</button>
       </div>
     </div>
   )

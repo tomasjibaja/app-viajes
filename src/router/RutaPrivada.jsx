@@ -4,9 +4,9 @@ import Context from '../context/Context'
 
 const RutaPrivada = ({ children }) => {
   const {logged} = useContext(Context)
-  return (!logged)
-    ? <Navigate to='/login' />
-    : children
+  return (logged.estado)
+    ? children
+    : <Navigate to='/' />
 }
 
 export default RutaPrivada
