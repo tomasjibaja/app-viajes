@@ -5,9 +5,10 @@ import Context from '../context/Context'
 const DestinoCard = ({ dest, i }) => {
 
   const navergarA = useNavigate()
-  const {recorrido} = useContext(Context)
+  const {recorrido, setPageScroll} = useContext(Context)
 
   const handleClick = (i) => {
+    setPageScroll(window.scrollY)
     navergarA( `/destino/${i}`, { replace: true })
   }
 

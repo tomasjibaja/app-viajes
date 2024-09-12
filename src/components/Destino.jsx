@@ -6,7 +6,7 @@ import data from '../data/data'
 const Destino = () => {
   const datos = useParams()
   const navegarA = useNavigate()
-  const {dispatchRecorrido, recorrido} = useContext(Context)
+  const {dispatchRecorrido, recorrido, currPage, pageScroll} = useContext(Context)
   const [comprado, setComprado] = useState()
 
   useEffect(() => {
@@ -23,6 +23,10 @@ const Destino = () => {
     setComprado(false)
   }
 
+  const handleVolver = () => {
+    navegarA(currPage)
+  }
+
   return (
     <div className='destino-page'>
       <h2>{data[datos.id].nombre}</h2>
@@ -35,7 +39,7 @@ const Destino = () => {
         {comprado && <button onClick={() => handleCancelar()}>Cancelar</button>}
         {!comprado && <button onClick={() => handleComprar()} className='comprar-btn'>Comprar</button>}
         {/* <button onClick={() => navegarA(`/${data[datos.id].zona}`, { replace: true })} className='volver-btn'>Volver</button> */}
-        <button onClick={() => navegarA('../')} className='volver-btn'>Volver</button>
+        <button onClick={handleVolver} className='volver-btn'>Volver</button>
       </div>
     </div>
   )

@@ -58,9 +58,11 @@ export const Provider = ({ children }) => {
   const [recorrido, dispatchRecorrido] = useReducer(reducerRecorrido, [], initRecorrido)
   const [logged, dispatchLog] = useReducer(reducerLog, {}, init)
   const [username, setUsername] = useState('')
+  const [currPage, setCurrPage] = useState('/no')
+  const [pageScroll, setPageScroll] = useState(0)
 
   return (
-    <Context.Provider value={{ recorrido, dispatchRecorrido, logged, dispatchLog, username, setUsername }} >
+    <Context.Provider value={{ recorrido, dispatchRecorrido, logged, dispatchLog, username, setUsername, currPage, setCurrPage, pageScroll, setPageScroll }} >
       {children}
     </Context.Provider>
   )

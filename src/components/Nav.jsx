@@ -4,7 +4,7 @@ import Context from '../context/Context'
 import { useContext } from 'react'
 
 const Nav = () => {
-  const {dispatchLog, dispatchRecorrido, username, setUsername} = useContext(Context)
+  const {dispatchLog, dispatchRecorrido, username, setUsername, setCurrPage} = useContext(Context)
   const navegarA = useNavigate()
   const [dropMenu, setDropMenu] = useState(false)
 
@@ -29,8 +29,8 @@ const Nav = () => {
 
   return (
     <nav>
-      <NavLink className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/no'>NOA</NavLink>
-      <NavLink className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/cp'>Centro y Patagonia</NavLink>
+      <NavLink onClick={() => setCurrPage('/no')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/no'>NOA</NavLink>
+      <NavLink onClick={() => setCurrPage('/cp')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/cp'>Centro y Patagonia</NavLink>
       <NavLink className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/recorrido'>Recorrido</NavLink>
       <div className='account'>
         <span>&#9823;{username}</span>
