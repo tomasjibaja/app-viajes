@@ -1,0 +1,47 @@
+import React, { useState }  from 'react'
+import { useNavigate } from 'react-router-dom'
+import Context from '../context/Context'
+import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
+import { FaUserCircle } from "react-icons/fa";
+
+const UserNav = () => {
+  const {dispatchLog, dispatchRecorrido, username, setUsername, setCurrPage} = useContext(Context)
+  const navegarA = useNavigate()
+  const [dropMenu, setDropMenu] = useState(false)
+
+  const handleClick = () => {
+    dispatchLog({ type: 'logout' });
+    dispatchRecorrido({ type: 'eliminar' })
+    setUsername('');
+    navegarA('/', { replace: true })
+  }
+
+  const handleMenu = () => {
+    if (dropMenu) {
+      document.querySelector('nav').classList.add('menu-dropped')
+      document.querySelector('.menu-arrow').innerHTML = '&#8593;'
+      setDropMenu(false)
+    } else {
+      document.querySelector('nav').classList.remove('menu-dropped')
+      document.querySelector('.menu-arrow').innerHTML = '&#8595;'
+      setDropMenu(true)
+    }
+  }
+  return (
+    <>
+      <div className="nav-pages">
+        <NavLink onClick={() => setCurrPage('/no')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/no'>NOA</NavLink>
+        <NavLink onClick={() => setCurrPage('/cp')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/cp'>Centro y Patagonia</NavLink>
+        <NavLink className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/recorrido'>Recorrido</NavLink>
+      </div>
+      <div className='account'>
+        <span onClick={() => navegarA('/recorrido')}><FaUserCircle />{username}</span>
+        <button onClick={handleClick} className='log-button'>logout</button>
+      </div>
+      <span onClick={handleMenu} className='menu-toggle'><span className='menu-arrow'>&#8595;</span>MENU</span>
+    </>
+  )
+}
+
+export default UserNav

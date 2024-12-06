@@ -17,10 +17,13 @@ const Login = () => {
   }
 
   return (
-    <div className='login'>
-      <h2>Ingrese su nombre de usuario</h2>
-      <input value={input} onChange={(e) => setInput(e.target.value)} type="text" />
-      <button onClick={handleClick}>Ingresar</button>
+    <div className="login-wrapper">
+      <div className='login'>
+        <h2>Te damos la bienvenida</h2>
+        <p>Ingresa el código de usuario para disfrutar de los mejores destinos de Argentina</p>
+        <input value={input} onChange={(e) => setInput(e.target.value)} type="text" />
+        <button onClick={handleClick}>INGRESAR</button>
+      </div>
     </div>
   )
 }

@@ -8,7 +8,7 @@ import Destino from '../components/Destino'
 
 const Router2 = () => {
   return (
-    <>
+    <div className='dashboard'>
       <Nav/>
       <Routes>
         <Route path='/no' element={<Destinos zona={'no'} />} />
@@ -18,7 +18,7 @@ const Router2 = () => {
         <Route path='/' element={<Navigate to={'/no'} />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
-    </>
+    </div>
   )
 }
 

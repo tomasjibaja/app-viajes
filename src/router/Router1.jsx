@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import RutaPublica from './RutaPublica'
 import RutaPrivada from './RutaPrivada'
 import Router2 from './Router2'
+import Nav from '../components/Nav'
 
 const Router1 = () => {
 
@@ -18,6 +19,7 @@ const Router1 = () => {
 
   return (
     <>
+      <Nav />
       <Routes>
         <Route path='/' element={
           <RutaPublica>
