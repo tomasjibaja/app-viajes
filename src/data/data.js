@@ -99,7 +99,7 @@ const data = [
       'nombre':'Puerto Madryn',
       'zona':'cp',
       'imagen':'madryn.webp',
-      'situacion':'Noroeste de la Provincia de Chubut (Dpto. de Biedma).',
+      'situacion':'Noroeste de la Provincia de Chubut (Dpto. de Viedma).',
       'servicio':"Ver las ballenas y lobos marinos en Punta Loma",
       'precio':197
    },

@@ -1,17 +1,31 @@
 :root {
-  --ladrillo: rgb(158, 52, 13);
+  font-family: Outfit, sans-serif;
+
+
+  --ladrillo: #9e340d;
   --ladrillo-10: rgba(158, 52, 13, 0.1);
   --ladrillo-30: rgba(158, 52, 13, 0.3);
   --ladrillo-70: rgba(158, 52, 13, 0.7);
   --ladrillo-90: rgba(158, 52, 13, 0.9);
 
-  --orange: rgb(198, 117, 19);
+  --orange: #c67513;
   --orange-90: rgba(198, 117, 19, .9);
+  --orange-70: rgba(198, 117, 19, .7);
+  --orange-30: rgba(198, 117, 19, .3);
 
   --orange-cream: rgb(255, 219, 174);
+  --orange-cream-10: rgba(255, 219, 174,.1);
+  --orange-cream-30: rgba(255, 219, 174,.3);
+  --orange-cream-70: rgba(255, 219, 174,.7);
+  --orange-cream-90: rgba(255, 219, 174,.9);
 
-  --cream: rgb(215, 201, 166);  
+  --cream: #d7c9a6;
+  --cream-10: rgba(215, 201, 166, .1);
   --cream-30: rgba(215, 201, 166, .3);
+  --cream-70: rgba(215, 201, 166, .7);
+  --cream-90: rgba(215, 201, 166, .9);
+
+  --green: #43753b;
 
 
   --shadow: rgb(30,30,30);
@@ -28,6 +42,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.double-border {
+  border: 2px solid;
+  border-top-color: var(--orange-70);
+  border-left-color: var(--orange-70);
+  border-right-color: var(--ladrillo);
+  border-bottom-color: var(--ladrillo);
+}
+
+.card-fade {
+  box-shadow: 
+    inset -90px -90px 180px 50px var(--shadow-30),
+    inset -90px -90px 90px 30px var(--ladrillo-30);
 }
 
 /* MOBILE */
@@ -109,10 +137,8 @@ nav > h2 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid rgba(90,90,90,.7);
   border-radius: 7px;
   background-color: var(--ladrillo-90);
-  box-shadow: inset -90px -90px 180px 50px var(--shadow-10);
   padding: 3rem;
 }
 
@@ -148,6 +174,12 @@ nav > h2 {
 
 .dashboard {
   background-color: var(--orange-cream);
+  width: 100vw;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .destinos-wrapper {
@@ -155,7 +187,7 @@ nav > h2 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 70px;
   padding: 25px;
   margin-top: 70px;
 }
@@ -167,41 +199,62 @@ nav > h2 {
 
 .destino-card {
   width: 80vw;
-  border: 1px solid rgba(90,90,90,.7);
-  background-color: rgba(90,90,90,.3);
+  background-color: var(--ladrillo-70);
   border-radius: 7px;
+  border: 3px solid var(--ladrillo-70);
   position: relative;
   padding: 20px;
   box-sizing: border-box;
-  border: 1px solid;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   align-items: center;
   justify-content: center;
-  transition: all .1s ease-in-out;
 }
 
 .destino-card > h2 {
   margin: 0;
+  width: 100%;
+  line-height: 3.4rem;
+  transform: translateX(-34px);
+  background-color: var(--orange);
+  border-top-left-radius: 3px;
+  box-shadow: 
+    inset 7px 0 7px 7px var(--shadow-10),
+    0 3px 9px 2px var(--shadow-30);
 }
 
 .destino-card > button {
-  margin-top: 1rem;
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  background-color: var(--orange);
 }
 
 .destino-card > img {
   width: 90%;
+  border: 7px solid gainsboro;
 }
 
 .destino-card > p {
-  width: 90%;
-  text-wrap: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 300;
+  width: 100%;
+  padding: 20px;
+  background-color: var(--green);
+  transform: translateX(18px);
+  border-top-right-radius: 5px;
+  box-shadow: 
+    inset -7px 0 7px 9px var(--shadow-10),
+    0 3px 9px 2px var(--shadow-30);
 }
 
 .greenball {
   position: absolute;
+  font-size: 2rem;
+  line-height: 2rem;
+  color: green;
+  filter: drop-shadow(0 0 3px white);
   right: 10px;
   bottom: 10px;
 }
@@ -292,29 +345,28 @@ nav > h2 {
   position: relative;
   box-sizing: border-box;
   width: 80vw;
-  border: 1px solid rgba(90,90,90,.7);
   border-radius: 7px;
-  background-color: rgba(90,90,90,.2);
-  margin-top: 3rem;
+  background-color: var(--ladrillo-70);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  justify-content: space-evenly;
+  gap: 30px;
+  padding: 30px;
 }
 
-.destino-page > img {
+.destino-page img {
   width: 90%;
   border-radius: 7px;
 }
 
-.destino-page > h2 {
+.destino-page h2 {
   font-size: 2.5rem;
   margin: 0;
   margin-top: 2rem;
 }
 
-.destino-page > .precio {
+.destino-page .precio {
   position: absolute;
   padding: 10px;
   background-color: rgba(9,9,9,.7);
@@ -324,15 +376,15 @@ nav > h2 {
   left: 18px;
 }
 
-.destino-page > .buttons-wrapper > .comprar-btn {
+.destino-page .buttons-wrapper  .comprar-btn {
   background-color: green;
 }
 
-.destino-page > .buttons-wrapper > .volver-btn {
+.destino-page .buttons-wrapper .volver-btn {
   background-color: rgba(255, 112, 23, 0.715);
 }
 
-.destino-page > .comprado-msg {
+.destino-page .comprado-msg {
   font-size: 12px;
   text-align: right;
   position: absolute;
@@ -343,7 +395,7 @@ nav > h2 {
   border-radius: 3px;
 }
 
-.destino-page > .buttons-wrapper {
+.destino-page .buttons-wrapper {
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -369,7 +421,7 @@ nav > h2 {
     margin: 0;
     border-radius: 3px;
     box-shadow: 
-      0 3px 21px 3px var(--shadow-30),
+      0 3px 21px 3px var(--shadow-70),
       0 7px 18px 3px var(--ladrillo-30);
   }  
 
@@ -432,6 +484,7 @@ nav > h2 {
 
   .nav-pages > a {
     width: 20vw;
+    font-size: 1.2rem;
     line-height: 3rem;
     text-align: center;
   }
@@ -445,49 +498,72 @@ nav > h2 {
     width: 50vw;
   }
 
+  .dashboard {
+    padding-top: 4rem;
+  }
+
   .menu-toggle {
     position: absolute;
     z-index: -10;
     opacity: 0;
   }
 
+  .destinos-title {
+    font-size: 3rem;
+    margin-top: 5rem;
+    color: var(--orange-90);
+    font-weight: 500;
+  }
+
   .destino-card {
     width: 25vw;
+    transition: all .5s ease;
   }
 
   .destino-card:hover {
     filter: brightness(1.08);
     transform: scale(1.01);
-    box-shadow: 0 3px 9px 1px rgba(90,0,220,.2);
   }
 
   .destino-page {
-    width: 50vw;
-    margin-top: 80px;
-    margin-bottom: 50px;
-    justify-content: space-evenly;
-    box-shadow: 0 7px 18px 9px rgba(9,9,9,.2);
+    width: 100%;
+    height: calc(100dvh - 4rem);
+    border-radius: 0;
   }
 
-  .destino-page> h2 {
+  .destino-page h2 {
     margin-top: 0;
   }
 
-  .destino-page > .buttons-wrapper {
-    width: 300px;
+  .destino-page  p {
+    width: 90%;
+    margin: 0;
+    text-align: right;
   }
 
-  .destino-page > img {
-    width: 90%;
+  .destino-page .buttons-wrapper {
+    width: 70%;
+    margin: 20px auto;
+  }
+
+  .buttons-wrapper  button {
+    font-size: 1.5rem;
+  }
+
+  .destino-page  img {
+    width: unset;
+    height: 50vh;
+    transform: translateX(-90px);
+    box-shadow: 3px 3px 12px 3px var(--shadow-30);
   }
   
-  .destino-page > .precio {
+  .destino-page  .precio {
     font-size: 2rem;
-    top: 20%;
-    left: 5rem;
+    top: 16%;
+    left: 25vw;
   }
 
-  .destino-page > .comprado-msg {
+  .destino-page .comprado-msg {
     top: 20%;
   }
 

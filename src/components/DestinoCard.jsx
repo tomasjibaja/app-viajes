@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Context from '../context/Context'
+import { PiSealCheckFill } from "react-icons/pi";
 
 const DestinoCard = ({ dest, i }) => {
 
@@ -13,11 +14,11 @@ const DestinoCard = ({ dest, i }) => {
   }
 
   return (
-    <div className="destino-card">
+    <div className="destino-card card-fade">
       <h2>{dest.nombre}</h2>
       <p>{dest.situacion}</p>
       <img src={`./images/${dest.imagen}`} alt="imagen turismo" />
-      {(recorrido.find((destino) => dest.nombre == destino.nombre) != undefined) && <span className='greenball'>🟢</span>}
+      {(recorrido.find((destino) => dest.nombre == destino.nombre) != undefined) && <span className='greenball'><PiSealCheckFill /></span>}
       <button onClick={() => handleClick(i)}>Más Info</button>
     </div>
   )
