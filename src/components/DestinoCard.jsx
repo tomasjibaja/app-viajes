@@ -14,7 +14,7 @@ const DestinoCard = ({ dest, i }) => {
   }
 
   return (
-    <div className="destino-card card-fade">
+    <div className="destino-card card-fade active">
       <h2>{dest.nombre}</h2>
       <p>{dest.situacion}</p>
       <img src={`./images/${dest.imagen}`} alt="imagen turismo" />

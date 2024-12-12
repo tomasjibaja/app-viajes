@@ -4,11 +4,17 @@ import Context from '../context/Context'
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaUserCircle } from "react-icons/fa";
+import { useMediaQuery } from 'react-responsive'
+import { FaClipboardList } from "react-icons/fa";
+import { PiMountains } from "react-icons/pi";
+import { PiCity } from "react-icons/pi";
+import { MdLogout } from "react-icons/md";
+
 
 const UserNav = () => {
   const {dispatchLog, dispatchRecorrido, username, setUsername, setCurrPage} = useContext(Context)
   const navegarA = useNavigate()
-  const [dropMenu, setDropMenu] = useState(false)
+  const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
   const handleClick = () => {
     dispatchLog({ type: 'logout' });
@@ -17,29 +23,17 @@ const UserNav = () => {
     navegarA('/', { replace: true })
   }
 
-  const handleMenu = () => {
-    if (dropMenu) {
-      document.querySelector('nav').classList.add('menu-dropped')
-      document.querySelector('.menu-arrow').innerHTML = '&#8593;'
-      setDropMenu(false)
-    } else {
-      document.querySelector('nav').classList.remove('menu-dropped')
-      document.querySelector('.menu-arrow').innerHTML = '&#8595;'
-      setDropMenu(true)
-    }
-  }
   return (
     <>
       <div className="nav-pages">
-        <NavLink onClick={() => setCurrPage('/no')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/no'>NOA</NavLink>
-        <NavLink onClick={() => setCurrPage('/cp')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/cp'>Centro y Patagonia</NavLink>
-        <NavLink className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/recorrido'>Recorrido</NavLink>
+        <NavLink onClick={() => setCurrPage('/no')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/no'>{isMobile ? <PiMountains /> : 'NOA'}</NavLink>
+        <NavLink onClick={() => setCurrPage('/cp')} className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/cp'>{isMobile ? <PiCity /> : 'Centro y Patagonia'}</NavLink>
+        <NavLink className={({isActive}) => (isActive ? 'active-navlink' : null)} to='/recorrido'>{isMobile ? <FaClipboardList /> : 'Recorrido'}</NavLink>
       </div>
       <div className='account'>
-        <span onClick={() => navegarA('/recorrido')}><FaUserCircle />{username}</span>
-        <button onClick={handleClick} className='log-button'>logout</button>
+        {!isMobile && <span onClick={() => navegarA('/recorrido')}><FaUserCircle /> {username}</span>}
+        <button onClick={handleClick} className='log-button'>{isMobile ? <MdLogout /> : 'logout'}</button>
       </div>
-      <span onClick={handleMenu} className='menu-toggle'><span className='menu-arrow'>&#8595;</span>MENU</span>
     </>
   )
 }

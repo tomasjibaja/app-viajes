@@ -28,7 +28,7 @@ const Destino = () => {
   }
 
   return (
-    <div className='destino-page card-fade'>
+    <div className={`destino-page active ${comprado ? 'green-card-fade bkg-green' : 'card-fade bkg-ladrillo'}`}>
       <h2>{data[datos.id].nombre}</h2>
       <div className="destino-content-wrapper">
         <div className="destino-imagen">
@@ -36,17 +36,20 @@ const Destino = () => {
           <h3 className="precio">${data[datos.id].precio}.-</h3>
           {comprado && <h5 className='comprado-msg'>en tu lista de recorrido</h5>}
         </div>
-          <div className="destino-info">
-            <p>{data[datos.id].situacion}</p>
-            <p>{data[datos.id].servicio}</p>
-            <div className='buttons-wrapper'>
-              {comprado && <button onClick={() => handleCancelar()}>Cancelar</button>}
-              {!comprado && <button onClick={() => handleComprar()} className='comprar-btn'>Comprar</button>}
-              {/* <button onClick={() => navegarA(`/${data[datos.id].zona}`, { replace: true })} className='volver-btn'>Volver</button> */}
-              <button onClick={handleVolver} className='volver-btn'>Volver</button>
-            </div>
-          </div>
+        <div className="destino-info">
+          <h4>Ubicación</h4>
+          <p>{data[datos.id].situacion}</p>
+          <hr />
+          <h4>Actividades</h4>
+          <p>{data[datos.id].servicio}</p>
         </div>
+        <div className='buttons-wrapper'>
+          {comprado && <button onClick={() => handleCancelar()}>Cancelar</button>}
+          {!comprado && <button onClick={() => handleComprar()} className='comprar-btn'>Comprar</button>}
+          {/* <button onClick={() => navegarA(`/${data[datos.id].zona}`, { replace: true })} className='volver-btn'>Volver</button> */}
+          <button onClick={handleVolver} className='volver-btn'>Volver</button>
+        </div>
+      </div>
     </div>
   )
 }

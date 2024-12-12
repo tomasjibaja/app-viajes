@@ -26,11 +26,13 @@
   --cream-90: rgba(215, 201, 166, .9);
 
   --green: #43753b;
+  --light-green: #d1ff51;
 
 
   --shadow: rgb(30,30,30);
   --shadow-10: rgba(30,30,30,.1);
   --shadow-30: rgba(30,30,30,.3);
+  --shadow-50: rgba(30,30,30,.5);
   --shadow-70: rgba(30,30,30,.7);
   --shadow-90: rgba(30,30,30,.9);
 }
@@ -58,30 +60,61 @@
     inset -90px -90px 90px 30px var(--ladrillo-30);
 }
 
+.green-card-fade {
+  box-shadow: 
+    inset -90px -90px 180px 50px var(--shadow-30),
+    inset -90px -90px 90px 30px var(--green);
+}
+
+.bkg-ladrillo {
+  background-color: var(--ladrillo-70);
+}
+
+.bkg-green {
+  background-color: var(--green);
+}
+
+.active {
+  animation: appear .5s ease;
+}
+
+@keyframes appear {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
+}
+
 /* MOBILE */
 
 nav {
-  position: absolute;
-  right: 0;
-  top: -230px;
-  padding-right: 30px;
-  height: 280px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: auto 10px;
+  height: 75px;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   transition: all .5s ease-in-out;
-  z-index: 1;
+  z-index: 20;
   background-color: var(--orange);
 }
 
+.nav-pages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
 .nav-pages > a {
-  padding: 3px;
-  width: 50vw;
-  text-align: right;
+  padding: 5px 12px;
   color: bisque;
   transition: all .3s ease;
+  font-size: 18px;
+  border-radius: 3px;
 }
 
 .nav-pages > a:hover {
@@ -93,30 +126,23 @@ nav > h2 {
   text-wrap: nowrap;
   font-family: Outfit, sans-serif;
   font-weight: 700;
+  margin-left: 20px;
 }
 
 .active-navlink {
   background-color: var(--cream-30);
 }
 
-.menu-dropped {
-  top: 0;
-}
-
-.menu-toggle {
-  user-select: none;
-}
-
-.menu-arrow {
-  font-size: 1.5rem;
-  padding-right: 1rem;
-}
-
 .account {
   display: flex;
   flex-direction: row;
-  align-items: end;
+  align-items: center;
   justify-content: space-evenly;
+  margin-right: 20px;
+}
+
+.title {
+  font-size: 36px;
 }
 
 .login-wrapper {
@@ -126,14 +152,15 @@ nav > h2 {
   background-position: center;
   background-blend-mode: multiply;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 70px);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .login {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -182,6 +209,12 @@ nav > h2 {
   justify-content: center;
 }
 
+.destinos-title {
+  margin-top: 108px;
+  color: var(--orange-90);
+  font-weight: 500;
+}
+
 .destinos-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -189,7 +222,6 @@ nav > h2 {
   justify-content: center;
   gap: 70px;
   padding: 25px;
-  margin-top: 70px;
 }
 
 .destinos-wrapper > h2 {
@@ -260,18 +292,17 @@ nav > h2 {
 }
 
 .recorrido-wrapper {
-  width: 90vw;
-  min-height: calc(90vh - 70px);
+  width: 80vw;
   border: 1px solid rgba(90,90,90,.7);
   border-radius: 7px;
-  background-color: rgba(90,90,90,.2);
-  margin-top: 6rem;
-  margin-bottom: 3rem;
+  background-color: var(--ladrillo-90);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 30px;
+  padding: 12px;
+  margin: 30px auto;
 }
 
 .recorrido-wrapper > h4 {
@@ -281,18 +312,24 @@ nav > h2 {
 
 .recorrido-username {
   font-size: 1.3rem;
-  color: chartreuse;
 }
 
 .recorrido-precio {
   font-size: 1.8rem;
-  color: chartreuse;
+}
+
+.recorrido-precio, .recorrido-username {
+  color: var(--light-green);
+  background-color: var(--orange-30);
+  padding: 9px;
+  border-radius: 9px;
 }
 
 .recorrido-item {
   box-sizing: border-box;
   border-radius: 7px;
   width: 90%;
+  max-height: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -311,7 +348,7 @@ nav > h2 {
 
 .recorrido-item-bkg {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   width: 100%;
   opacity: .5;
   filter: contrast(2.5) blur(4px);
@@ -328,7 +365,9 @@ nav > h2 {
 }
 
 .recorrido-item > h3, .recorrido-item > h4 {
+  z-index: 10;
   text-shadow: 0 0 5px black;
+  font-size: 21px;
 }
 
 .recorrido-item > h3:hover {
@@ -337,6 +376,7 @@ nav > h2 {
 }
 
 .recorrido-item > button {
+  z-index: 10;
   padding: 7px;
   margin-right: 1rem;
 }
@@ -346,13 +386,15 @@ nav > h2 {
   box-sizing: border-box;
   width: 80vw;
   border-radius: 7px;
-  background-color: var(--ladrillo-70);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   gap: 30px;
   padding: 30px;
+  transition: all .5s ease;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .destino-page img {
@@ -363,7 +405,6 @@ nav > h2 {
 .destino-page h2 {
   font-size: 2.5rem;
   margin: 0;
-  margin-top: 2rem;
 }
 
 .destino-page .precio {
@@ -372,7 +413,7 @@ nav > h2 {
   background-color: rgba(9,9,9,.7);
   border-radius: 9px;
   font-size: 1.5rem;
-  top: 50%;
+  top: 18%;
   left: 18px;
 }
 
@@ -389,14 +430,26 @@ nav > h2 {
   text-align: right;
   position: absolute;
   right: 10%;
-  top: 50%;
+  top: 18%;
   background-color: rgba(30,90,30,.7);
   padding: 3px 7px;
   border-radius: 3px;
 }
 
+.destino-info {
+  padding-bottom: 18px;
+}
+
+.destino-info > h4 {
+  margin-bottom: 0;
+}
+
+.destino-info > p {
+  margin-top: 0;
+}
+
 .destino-page .buttons-wrapper {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -411,6 +464,15 @@ nav > h2 {
     align-items: center;
     justify-content: space-evenly;
     position: relative;
+  }
+
+  .login-wrapper {
+    height: 100vh;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 70px;
   }
 
   .login > h2 {
@@ -459,6 +521,8 @@ nav > h2 {
 
   nav > h2 {
     font-size: 2rem;
+    padding-left: unset;
+    margin-left: unset;
   }
 
   nav > h2 > svg {
@@ -511,8 +575,6 @@ nav > h2 {
   .destinos-title {
     font-size: 3rem;
     margin-top: 5rem;
-    color: var(--orange-90);
-    font-weight: 500;
   }
 
   .destino-card {
@@ -529,16 +591,8 @@ nav > h2 {
     width: 100%;
     height: calc(100dvh - 4rem);
     border-radius: 0;
-  }
-
-  .destino-page h2 {
-    margin-top: 0;
-  }
-
-  .destino-page  p {
-    width: 90%;
-    margin: 0;
-    text-align: right;
+    margin-top: unset;
+    margin-bottom: unset;
   }
 
   .destino-page .buttons-wrapper {
@@ -553,23 +607,57 @@ nav > h2 {
   .destino-page  img {
     width: unset;
     height: 50vh;
-    transform: translateX(-90px);
     box-shadow: 3px 3px 12px 3px var(--shadow-30);
   }
   
-  .destino-page  .precio {
+  .destino-page .precio {
     font-size: 2rem;
-    top: 16%;
+    top: 21%;
     left: 25vw;
   }
 
   .destino-page .comprado-msg {
-    top: 20%;
+    top: 25%;
+    right: 25vw;
+  }
+
+  .destino-info {
+    text-align: right;
+    text-shadow: 0 1px 2px black;
+    position: absolute;
+    background-color: var(--ladrillo-70);
+    box-shadow: inset -50px -30px 90px 10px var(--shadow-50);
+    width: 20vw;
+    max-height: 36vh;
+    height: fit-content;
+    padding: 25px 40px;
+    top: 25%;
+    transform: translate(25%, 25%);
+    right: 30vw;
+    overflow: hidden;
+    border-radius: 9px;
+  }
+
+  .destino-info h4 {
+    font-size: 21px;
+    margin: 0;
+  }
+
+  .destino-info p {
+    margin-top: 0;
+  }
+
+  .destino-info hr {
+    opacity: .5;
   }
 
   .recorrido-wrapper {
     min-height: auto;
     width: 50vw;
+  }
+
+  .recorrido-wrapper > h2 {
+    font-size: 32px;
   }
 
   .recorrido-wrapper > * {

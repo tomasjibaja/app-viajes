@@ -14,11 +14,11 @@ const Destinos = ({ zona }) => {
   useEffect(() => {
     window.scroll(0, pageScroll)
     setTitulo(zona === 'no' ? 'Noroeste Argentino' : 'Centro y Patagonia')
-  }, [])
+  }, [zona])
 
   return (
     <>
-      <h2 className='destinos-title'>{titulo}</h2>
+      <h2 className='destinos-title active'>{titulo}</h2>
       <div className='destinos-wrapper'>
         {data.map((elem, index) => {
           if (elem.zona == zona ) {

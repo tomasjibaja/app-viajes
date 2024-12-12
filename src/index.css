@@ -13,18 +13,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+}
+
 a {
   font-weight: 500;
   text-decoration: inherit;
 }
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 220px;
   min-height: 100vh;
-}
+} */
 
 h1 {
   font-size: 3.2em;

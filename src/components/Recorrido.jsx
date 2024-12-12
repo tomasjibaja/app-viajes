@@ -5,7 +5,7 @@ import Context from '../context/Context'
 const Recorrido = () => {
   const {recorrido, dispatchRecorrido, username} = useContext(Context)
   return (
-    <div className='recorrido-wrapper'>
+    <div className='recorrido-wrapper card-fade active'>
       <h2>Tu recorrido</h2>
       {recorrido.length == 0 && <h5>Aún no has añadido lugares a tu recorrido</h5>}
       {recorrido.map((elem, index) => {
@@ -18,7 +18,7 @@ const Recorrido = () => {
           </div>
         )
       })}
-      <h4>Reserva a nombre de <span className='recorrido-username'>{username}</span></h4>
+      <h4>Código de usuario: <span className='recorrido-username'>{username}</span></h4>
       <h3>Total a pagar: <span className='recorrido-precio'>${recorrido.reduce((suma, elem) => 
         suma + elem.precio
       , 0)}</span></h3>
