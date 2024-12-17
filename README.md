@@ -1,4 +1,4 @@
-# 5D Trips
+# 5D Trips ✈️
 A web-app made in React to book destinations all around Argentina.
 The user enters a code and then can explore the different destinations, book them and see the complete route.
 
